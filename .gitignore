@@ -1,0 +1,35 @@
+# Ignore environment variable files
+token.env
+
+#Ignore prepopulated outputs
+.csv
+
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environments
+venv/
+.env/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore compiled C extensions
+*.so
+
+# Ignore macOS system files
+*.DS_Store
+
+# Ignore the Docker build folder
+docker/

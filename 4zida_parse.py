@@ -134,4 +134,4 @@ def aggregate_csv(in_path="./"):
     return total_processed, total_added
 
 
-get_apartment_data(20000, 65000, 40, 100, "./Temp/")
+get_apartment_data(20000, 50000, 40, 100, "./Temp/")

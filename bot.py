@@ -38,12 +38,19 @@ def update_posted_timestamp(file_path, link):
 @bot.message_handler(commands=['random'])
 def send_random_asmediagroup(*args):
     apartment = get_random_apartment()
-    caption = (
+    if apartment['Price'] == 'Cena na upit':
+        caption = (
         f"<b>{apartment['Address']}</b>\n"
-        f"Price: {apartment['Price']}€\n"
-        f"Price per square: {apartment['Price per square']}€/m²\n"
-        f"Area: {apartment['Area']}m²\n"
+        f"Price: {apartment['Price']}\n"
         f"<a href='{apartment['Link']}'>Link</a>"
+    )
+    else:
+        caption = (
+            f"<b>{apartment['Address']}</b>\n"
+            f"Price: {apartment['Price']}€\n"
+            f"Price per square: {apartment['Price per square']}€/m²\n"
+            f"Area: {apartment['Area']}m²\n"
+            f"<a href='{apartment['Link']}'>Link</a>"
     )
 
     bot.send_media_group(
@@ -56,13 +63,13 @@ def send_random_asmediagroup(*args):
 def auto_sender():
     while not stop_thread.is_set():
         send_random_asmediagroup()
-        time.sleep(30)
+        time.sleep(900)
 
 @bot.message_handler(commands=['start'])
 def start_sending(message):
     if not stop_thread.is_set():
         threading.Thread(target=auto_sender).start()
-        bot.reply_to(message, "Started sending apartments every 30 seconds.")
+        bot.reply_to(message, "Started sending apartments every 900 seconds.")
 
 @bot.message_handler(commands=['stop'])
 def stop_sending(message):
