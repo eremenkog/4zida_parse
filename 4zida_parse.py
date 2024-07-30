@@ -103,7 +103,7 @@ def clean_address(address):
 def write_to_csv(apartments, output_file):
     added_count = 0
     with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['Preview', 'Address', 'Price', 'Price per square', 'Area', 'Link']
+        fieldnames = ['Preview', 'Address', 'Price', 'Price per square', 'Area', 'Link', 'Posted']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         if csvfile.tell() == 0:
